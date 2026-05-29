@@ -1,0 +1,26 @@
+{
+  "tuning": [
+    { "id": 1, "name": "Чип-тюнинг двигателя", "oldPrice": 25000, "price": 15000, "days": 1, "popular": true },
+    { "id": 2, "name": "Установка обвеса", "oldPrice": 35000, "price": 25000, "days": 3, "popular": false },
+    { "id": 3, "name": "Перепрошивка ЭБУ", "oldPrice": 12000, "price": 8000, "days": 1, "popular": true },
+    { "id": 4, "name": "Замена выхлопной системы", "oldPrice": 30000, "price": 20000, "days": 2, "popular": false }
+  ],
+  "oils": [
+    { "id": 5, "name": "Замена масла двигателя", "oldPrice": 4000, "price": 2500, "popular": true },
+    { "id": 6, "name": "Замена масла в АКПП", "oldPrice": 5500, "price": 3500, "popular": true },
+    { "id": 7, "name": "Замена масла в раздатке", "oldPrice": 3500, "price": 2000, "popular": false },
+    { "id": 8, "name": "Замена масла в редукторе", "oldPrice": 3500, "price": 2000, "popular": false },
+    { "id": 9, "name": "Замена масляного фильтра", "oldPrice": 1500, "price": 800, "popular": true },
+    { "id": 10, "name": "Замена воздушного фильтра", "oldPrice": 1200, "price": 600, "popular": false },
+    { "id": 11, "name": "Замена салонного фильтра", "oldPrice": 1000, "price": 500, "popular": false }
+  ],
+  "services": [
+    { "id": 12, "name": "Шиномонтаж", "oldPrice": 1000, "price": 600, "popular": true },
+    { "id": 13, "name": "Ремонт двигателя", "oldPrice": 25000, "price": 15000, "popular": false },
+    { "id": 14, "name": "Ремонт подвески", "oldPrice": 15000, "price": 8000, "popular": true },
+    { "id": 15, "name": "Компьютерная диагностика", "oldPrice": 2500, "price": 1500, "popular": true },
+    { "id": 16, "name": "Регулировка фар", "oldPrice": 1500, "price": 800, "popular": false },
+    { "id": 17, "name": "Замена ремня ГРМ", "oldPrice": 8000, "price": 5000, "popular": false },
+    { "id": 18, "name": "Развал-схождение", "oldPrice": 3500, "price": 2000, "popular": true }
+  ]
+}

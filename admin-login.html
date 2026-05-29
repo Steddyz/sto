@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в админ-панель | Автосервис "Мотор-Техно"</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+        }
+        .login-container {
+            max-width: 400px;
+            width: 90%;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #e94560, #ff8e8e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1><i class="fas fa-car"></i> Мотор-Техно</h1>
+            <p style="margin-top: 0.5rem;">Вход в админ-панель</p>
+        </div>
+        <div class="glass-card" style="padding: 2rem;">
+            <div class="form-group">
+                <label><i class="fas fa-lock"></i> Пароль администратора</label>
+                <input type="password" id="adminPassword" placeholder="Введите пароль" style="width: 100%; padding: 12px; border-radius: 12px; border: var(--glass-border); background: var(--bg-primary); color: var(--text-primary);">
+            </div>
+            <div id="loginError" style="color: #ff7675; font-size: 0.85rem; margin-top: 8px; display: none;"></div>
+            <button class="btn" id="loginBtn" style="width: 100%; margin-top: 1.5rem;">
+                <i class="fas fa-sign-in-alt"></i> Войти
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        const PASSWORD_HASH = '04445e6487736590d1ef50186b414e737e0164683cbbec64e00e73c000fd3bef';
+        
+        const hashPassword = async (password) => {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        };
+        
+        const loginBtn = document.getElementById('loginBtn');
+        const passwordInput = document.getElementById('adminPassword');
+        const errorDiv = document.getElementById('loginError');
+        
+        const attemptLogin = async () => {
+            const password = passwordInput.value;
+            if (!password) {
+                errorDiv.textContent = 'Введите пароль';
+                errorDiv.style.display = 'block';
+                return;
+            }
+            
+            const hashed = await hashPassword(password);
+            
+            if (hashed === PASSWORD_HASH) {
+                sessionStorage.setItem('admin_logged_in', 'true');
+                sessionStorage.setItem('admin_login_time', Date.now().toString());
+                window.location.href = 'admin.html';
+            } else {
+                errorDiv.textContent = 'Неверный пароль';
+                errorDiv.style.display = 'block';
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        };
+        
+        loginBtn.addEventListener('click', attemptLogin);
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') attemptLogin();
+        });
+        
+        if (sessionStorage.getItem('admin_logged_in') === 'true') {
+            window.location.href = 'admin.html';
+        }
+    </script>
+</body>
+</html>
