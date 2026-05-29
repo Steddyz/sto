@@ -235,7 +235,7 @@ export const renderHomePage = (store) => {
         <div class="counter-wrapper" style="text-align: center; margin: 2rem 0;">
             <div class="glass-card" style="padding: 2rem; display: inline-block;">
                 <i class="fas fa-wrench" style="font-size: 3rem;"></i>
-                <h2>Машин починили сегодня</h2>
+                <h2>Машин починили за всё время</h2>
                 <p id="counterDisplay" style="font-size: 4rem; font-weight: 800; color: var(--accent);">0</p>
             </div>
         </div>

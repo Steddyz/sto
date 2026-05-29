@@ -2130,3 +2130,38 @@ footer:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 40px var(--shadow);
 }
+
+/* ============================================
+   ОБВОДКА ДЛЯ БЛОКОВ В КОНТАКТАХ (СВЕТЛАЯ ТЕМА)
+   ============================================ */
+
+/* Для светлой темы */
+[data-theme="light"] .glass-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .glass-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Специально для карты */
+[data-theme="light"] .map-container {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .map-container:hover {
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Для иконок соцсетей в контактах */
+[data-theme="light"] .glass-card a {
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .glass-card a:hover {
+    transform: translateY(-3px);
+}

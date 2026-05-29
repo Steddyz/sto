@@ -15,7 +15,7 @@ export const renderTuningPage = (store) => {
     container.className = 'container';
     
     container.innerHTML = `
-        <h1 style="margin-bottom: 2rem;">🏎️ Тюнинг автомобилей</h1>
+        <h1 style="margin-bottom: 2rem;">🔧 Тюнинг автомобилей</h1>
         
         <div class="form-group glass-card" style="padding: 1.5rem; margin-bottom: 2rem;">
             <h3>📋 Данные автомобиля</h3>
